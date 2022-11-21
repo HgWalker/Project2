@@ -1,0 +1,89 @@
+<<<<<<< HEAD
+﻿@using System.Net.Mail;
+
+@using _2ndProject.Server.Pages
+
+
+@code {
+    
+    string TheUserEmail = "";
+
+    string TheEmailMessage = "";
+
+    public string message { get; set; } = "";
+
+    void sendTheEmail() {
+
+
+        try
+        {
+            using (MailMessage mail = new MailMessage())
+            {
+                mail.From = new MailAddress(TheUserEmail);
+                mail.To.Add("Hwalker19982003@gmail.com");
+                mail.Subject = ("Professional webapp email");
+                mail.Subject = (TheEmailMessage);
+                mail.IsBodyHtml = true;
+
+                using (SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587))
+                {
+                    smtp.Credentials = new System.Net.NetworkCredential(TheUserEmail, "1234");
+                    smtp.EnableSsl = true;
+                    smtp.Send(mail);
+                    message = "Thank you for the message, I will respond back to you as soon as I am able";
+                }
+
+
+            }
+        }
+        catch (Exception ex)
+        {
+            message = ex.Message;
+        }
+    }
+}
+=======
+﻿@using System.Net.Mail;
+
+@using _2ndProject.Server.Pages
+
+
+@code {
+    
+    string TheUserEmail = "";
+
+    string TheEmailMessage = "";
+
+    public string message { get; set; } = "";
+
+    void sendTheEmail() {
+
+
+        try
+        {
+            using (MailMessage mail = new MailMessage())
+            {
+                mail.From = new MailAddress(TheUserEmail);
+                mail.To.Add("Hwalker19982003@gmail.com");
+                mail.Subject = ("Professional webapp email");
+                mail.Subject = (TheEmailMessage);
+                mail.IsBodyHtml = true;
+
+                using (SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587))
+                {
+                    smtp.Credentials = new System.Net.NetworkCredential(TheUserEmail, "1234");
+                    smtp.EnableSsl = true;
+                    smtp.Send(mail);
+                    message = "Thank you for the message, I will respond back to you as soon as I am able";
+                }
+
+
+            }
+        }
+        catch (Exception ex)
+        {
+            message = ex.Message;
+        }
+    }
+}
+>>>>>>> 7689e665470e83cf1f9d5c162ce4c8a2a9bb58be
